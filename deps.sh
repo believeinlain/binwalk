@@ -91,8 +91,9 @@ function install_sasquatch
 function install_jefferson
 {
     git clone --quiet --depth 1 --branch "master" https://github.com/onekey-sec/jefferson
-    curl -sSL https://install.python-poetry.org | POETRY_HOME=/usr/bin/poetry $PYTHON -
-    (cd jefferson && poetry install)
+    curl -sSL https://install.python-poetry.org | POETRY_HOME="/etc/poetry" $PYTHON -
+    POETRY="$POETRY_HOME/venv/bin/poetry"
+    (cd jefferson && $POETRY install)
     $SUDO rm -rf jefferson
 }
 
