@@ -90,7 +90,10 @@ function install_sasquatch
 
 function install_jefferson
 {
-    $SUDO $PYTHON -mpip install jefferson
+    git clone --quiet --depth 1 --branch "master" https://github.com/onekey-sec/jefferson
+    curl -sSL https://install.python-poetry.org | python3 -
+    (cd jefferson && poetry install)
+    $SUDO rm -rf jefferson
 }
 
 function install_cramfstools
