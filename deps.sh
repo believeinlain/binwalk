@@ -90,9 +90,7 @@ function install_sasquatch
 
 function install_jefferson
 {
-    git clone --quiet --depth 1 --branch "master" https://github.com/onekey-sec/jefferson
-    (cd jefferson && $SUDO $PYTHON -mpip install -r requirements.txt && $SUDO $PYTHON setup.py install)
-    $SUDO rm -rf jefferson
+    $SUDO $PYTHON -mpip install jefferson
 }
 
 function install_cramfstools
